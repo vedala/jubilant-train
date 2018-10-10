@@ -1,0 +1,17 @@
+<p>{{ comment.name }}</p>
+<p>
+  {{ comment.message }}
+  {% assign replies = null | compact %}
+  {% for comment_val_2 in site.data.staticspring[page.slug] %}
+    {% assign comm_2 = comment_val_2[1] %}
+    {% if comm_2.parent == curr_comment %}
+      {% assign reply = comm_2 | compact %}
+      {% assign replies = replies | concat: reply %}
+    {% endif %}
+  {% endfor %}
+  {% if replies.size != 0 %}
+    <p>
+      <b>Replies: {{ replies.size }}</b>
+    </p>
+  {% endif %}
+</p>

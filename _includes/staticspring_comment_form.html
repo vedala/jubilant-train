@@ -1,0 +1,17 @@
+<h2>Add a comment</h2>
+<form action="http://localhost:5000/comment/{{ site.staticspring.api_token }}" method="post">
+  <input type="hidden" name="slug" value="{{ page.slug }}">
+  <label for="name">Name
+  <input type="text" id="name" name="name">
+  </label>
+  <br>
+  <label for="name">Email
+  <input type="email" id="email" name="email">
+  </label>
+  <br>
+  <label for="message">Message
+  <textarea id="message" name="message" placeholder="Enter message"></textarea>
+  </label>
+  <br>
+  <input type="submit" text="Add Comment">
+</form>

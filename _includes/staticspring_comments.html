@@ -1,0 +1,14 @@
+<h2>Comments</h2>
+<hr>
+<br>
+{% for comment_val in site.data.staticspring[page.slug] %}
+  {% assign comment = comment_val[1] %}
+  {% assign curr_comment = comment_val[0] %}
+  {% if comment.parent %}
+  {%    continue %}
+  {% else %}
+      {% include staticspring_comment.html %}
+      <hr>
+      <br>
+  {% endif %}
+{% endfor %}
